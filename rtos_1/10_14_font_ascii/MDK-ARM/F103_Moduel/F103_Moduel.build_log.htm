@@ -1,0 +1,169 @@
+<html>
+<body>
+<pre>
+<h1>�Vision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ��Vision V5.41.0.0
+Copyright (C) 2024 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 111 15943287118@163.com, 111, LIC=HN0AE-5AW82-FWD2N-YLC39-V6YJN-4QQAJ
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.41.0.0
+Toolchain Path:  D:\Keil_5.41\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.22
+Assembler:       Armasm.exe V6.22
+Linker/Locator:  ArmLink.exe V6.22
+Library Manager: ArmAr.exe V6.22
+Hex Converter:   FromElf.exe V6.22
+CPU DLL:         SARMCM3.DLL V5.41.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.3.0.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+D:\rtos_prj\rtos_100ask\rtos_1\10_14_font_ascii\MDK-ARM\F103_Moduel.uvprojx
+Project File Date:  03/19/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.22', folder: 'D:\Keil_5.41\ARM\ARMCLANG\Bin'
+Rebuild target 'F103_Moduel'
+Note: source file '..\smartdevice\fonts\ascii_font.c' - object file renamed from 'F103_Moduel\ascii_font.o' to 'F103_Moduel\ascii_font_1.o'.
+compiling main.c...
+compiling stm32f1xx_hal_gpio_ex.c...
+compiling stm32f1xx_it.c...
+compiling stm32f1xx_hal_msp.c...
+assembling startup_stm32f103xe.s...
+compiling stm32f1xx_hal_tim.c...
+compiling stm32f1xx_hal_uart.c...
+compiling stm32f1xx_hal.c...
+compiling stm32f1xx_hal_rcc_ex.c...
+compiling stm32f1xx_hal_rcc.c...
+compiling stm32f1xx_hal_gpio.c...
+compiling stm32f1xx_hal_dma.c...
+compiling stm32f1xx_hal_pwr.c...
+compiling stm32f1xx_hal_cortex.c...
+compiling stm32f1xx_hal_flash.c...
+compiling stm32f1xx_hal_flash_ex.c...
+compiling system_stm32f1xx.c...
+compiling stm32f1xx_hal_exti.c...
+compiling driver_usart.c...
+compiling ring_buffer.c...
+compiling driver_key.c...
+compiling driver_led.c...
+compiling ascii_font.c...
+compiling driver_i2c.c...
+compiling driver_oled.c...
+compiling kal_gpio_key.c...
+compiling kal_time.c...
+compiling kal_led_device.c...
+compiling kal_oled_device.c...
+compiling cal_gpio_key.c...
+compiling cal_time.c...
+compiling cal_led_device.c...
+compiling cal_oled_device.c...
+compiling gpio_key.c...
+compiling input_buffer.c...
+compiling input_system.c...
+compiling input_test.c...
+compiling led_test.c...
+compiling display_test.c...
+compiling led_device.c...
+compiling display_device.c...
+compiling display_system.c...
+compiling oled_device.c...
+../smartdevice/fonts/ascii_font.c(289): error: unknown type name 'PFontBitMap'
+  289 | static int ASCIIGetFontBitMap(unsigned int dwCode, PFontBitMap ptFontBitMap)  /* 获取某个字符的字库 */
+      |                                                    ^
+../smartdevice/fonts/ascii_font.c(293): warning: initializing 'unsigned char *' with an expression of type 'const unsigned char[16]' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  293 |         unsigned char *dots = ascii_font[dwCode];
+      |                        ^      ~~~~~~~~~~~~~~~~~~
+../smartdevice/fonts/ascii_font.c(317): error: call to undeclared library function 'memcpy' with type 'void *(void *, const void *, unsigned int)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  317 |                         memcpy(ptFontBitMap->pucBuffer, dots, 16);
+      |                         ^
+../smartdevice/fonts/ascii_font.c(317): note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+../smartdevice/fonts/ascii_font.c(326): error: unknown type name 'FontLib'
+  326 | static FontLib g_ASCIIFontLib = {
+      |        ^
+../smartdevice/fonts/ascii_font.c(328): error: use of undeclared identifier 'NULL'
+  328 |         NULL,
+      |         ^
+../smartdevice/fonts/ascii_font.c(330): error: use of undeclared identifier 'NULL'
+  330 |         NULL,
+      |         ^
+../smartdevice/fonts/ascii_font.c(347): error: call to undeclared function 'FontLibRegister'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  347 |         FontLibRegister(&g_ASCIIFontLib);
+      |         ^
+1 warning and 6 errors generated.
+compiling ascii_font.c...
+../smartdevice/fonts/font_manager.c(2): warning: In file included from...
+../smartdevice/fonts\font_manager.h(18): warning: declaration of 'struct FontOpr' will not be visible outside of this function [-Wvisibility]
+   18 |         int (*FontInit)(struct FontOpr *pFontLib);  /* 初始化字库 */
+      |                                ^
+../smartdevice/fonts/font_manager.c(37): error: call to undeclared library function 'strcmp' with type 'int (const char *, const char *)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   37 |                 if (strcmp(pTmp->name, name) == 0)
+      |                     ^
+../smartdevice/fonts/font_manager.c(37): note: include the header <string.h> or explicitly provide a declaration for 'strcmp'
+../smartdevice/fonts/font_manager.c(42): error: use of undeclared identifier 'NULL'
+   42 |         return NULL;
+      |                ^
+1 warning and 2 errors generated.
+compiling font_manager.c...
+../smartdevice/fonts/font_system.c(14): error: call to undeclared function 'AddFontLibASCII'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   14 |         AddFontLibASCII();
+      |         ^
+../smartdevice/fonts/font_system.c(14): note: did you mean 'AddFontLibs'?
+../smartdevice/fonts/font_system.c(12): note: 'AddFontLibs' declared here
+   12 | void AddFontLibs(void)
+      |      ^
+   13 | {
+   14 |         AddFontLibASCII();
+      |         ~~~~~~~~~~~~~~~
+      |         AddFontLibs
+../smartdevice/fonts/font_system.c(27): error: unknown type name 'PFontLib'
+   27 | PFontLib GetFontLib(char *name)
+      | ^
+../smartdevice/fonts/font_system.c(29): error: call to undeclared function '__GetFontLib'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   29 |         return __GetFontLib(name);
+      |                ^
+../smartdevice/fonts/font_system.c(29): note: did you mean 'GetFontLib'?
+../smartdevice/fonts/font_system.c(27): note: 'GetFontLib' declared here
+   27 | PFontLib GetFontLib(char *name)
+      |          ^
+   28 | {
+   29 |         return __GetFontLib(name);
+      |                ~~~~~~~~~~~~
+      |                GetFontLib
+3 errors generated.
+compiling font_system.c...
+compiling gpio.c...
+compiling usart.c...
+compiling stm32f1xx_hal_tim_ex.c...
+"F103_Moduel\F103_Moduel.axf" - 11 Error(s), 2 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS.6.1.0.pack
+                ARM::CMSIS@6.1.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 6.1.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.1.pack
+                Keil::STM32F1xx_DFP@2.4.1
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_F103_Moduel
+  D:/Keil_5.41/ARM/CMSIS/6.1.0/CMSIS/Core/Include
+  D:/Keil_5.41/Keil/STM32F1xx_DFP/2.4.1/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE@6.1.0
+      Include file:  CMSIS/Core/Include/tz_context.h
+Target not created.
+Build Time Elapsed:  00:00:40
+</pre>
+</body>
+</html>
