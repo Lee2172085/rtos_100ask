@@ -570,7 +570,7 @@ Section Cross References
     driver_oled.o(.text.OLED_PutChar) refers to driver_i2c.o(.text.I2C_WriteByte) for I2C_WriteByte
     driver_oled.o(.text.OLED_PutChar) refers to driver_i2c.o(.text.I2C_Stop) for I2C_Stop
     driver_oled.o(.text.OLED_PutChar) refers to driver_oled.o(.text.OLED_SetColAddr_PAGE) for OLED_SetColAddr_PAGE
-    driver_oled.o(.text.OLED_PutChar) refers to ascii_font.o(.rodata.ascii_font) for ascii_font
+    driver_oled.o(.text.OLED_PutChar) refers to ascii_font_1.o(.rodata.ascii_font) for ascii_font
     driver_oled.o(.ARM.exidx.text.OLED_PutChar) refers to driver_oled.o(.text.OLED_PutChar) for [Anonymous Symbol]
     driver_oled.o(.text.OLED_PrintString) refers to driver_oled.o(.text.OLED_PutChar) for OLED_PutChar
     driver_oled.o(.ARM.exidx.text.OLED_PrintString) refers to driver_oled.o(.text.OLED_PrintString) for [Anonymous Symbol]
@@ -664,6 +664,31 @@ Section Cross References
     display_system.o(.ARM.exidx.text.AddDisplayDevices) refers to display_system.o(.text.AddDisplayDevices) for [Anonymous Symbol]
     display_system.o(.text.GetDisplayDevice) refers to display_device.o(.text.__GetDisplayDevice) for __GetDisplayDevice
     display_system.o(.ARM.exidx.text.GetDisplayDevice) refers to display_system.o(.text.GetDisplayDevice) for [Anonymous Symbol]
+    ascii_font_1.o(.text.AddFontLibASCII) refers to ascii_font_1.o(.data.g_ASCIIFontLib) for g_ASCIIFontLib
+    ascii_font_1.o(.text.AddFontLibASCII) refers to font_manager.o(.text.FontLibRegister) for FontLibRegister
+    ascii_font_1.o(.ARM.exidx.text.AddFontLibASCII) refers to ascii_font_1.o(.text.AddFontLibASCII) for [Anonymous Symbol]
+    ascii_font_1.o(.ARM.exidx.text.ASCIIGetFontSize) refers to ascii_font_1.o(.text.ASCIIGetFontSize) for [Anonymous Symbol]
+    ascii_font_1.o(.text.ASCIIGetFontBitMap) refers to ascii_font_1.o(.rodata.ascii_font) for ascii_font
+    ascii_font_1.o(.ARM.exidx.text.ASCIIGetFontBitMap) refers to ascii_font_1.o(.text.ASCIIGetFontBitMap) for [Anonymous Symbol]
+    ascii_font_1.o(.data.g_ASCIIFontLib) refers to ascii_font_1.o(.rodata.str1.1) for [Anonymous Symbol]
+    ascii_font_1.o(.data.g_ASCIIFontLib) refers to ascii_font_1.o(.text.ASCIIGetFontSize) for ASCIIGetFontSize
+    ascii_font_1.o(.data.g_ASCIIFontLib) refers to ascii_font_1.o(.text.ASCIIGetFontBitMap) for ASCIIGetFontBitMap
+    font_manager.o(.text.FontLibRegister) refers to font_manager.o(.bss.g_ptFontLibs) for g_ptFontLibs
+    font_manager.o(.ARM.exidx.text.FontLibRegister) refers to font_manager.o(.text.FontLibRegister) for [Anonymous Symbol]
+    font_manager.o(.text.__GetFontLib) refers to font_manager.o(.bss.g_ptFontLibs) for g_ptFontLibs
+    font_manager.o(.text.__GetFontLib) refers to strcmp.o(.text) for strcmp
+    font_manager.o(.ARM.exidx.text.__GetFontLib) refers to font_manager.o(.text.__GetFontLib) for [Anonymous Symbol]
+    font_system.o(.text.AddFontLibs) refers to ascii_font_1.o(.text.AddFontLibASCII) for AddFontLibASCII
+    font_system.o(.ARM.exidx.text.AddFontLibs) refers to font_system.o(.text.AddFontLibs) for [Anonymous Symbol]
+    font_system.o(.text.GetFontLib) refers to font_manager.o(.text.__GetFontLib) for __GetFontLib
+    font_system.o(.ARM.exidx.text.GetFontLib) refers to font_system.o(.text.GetFontLib) for [Anonymous Symbol]
+    font_system.o(.text.SetDefaultFontLib) refers to font_manager.o(.text.__GetFontLib) for __GetFontLib
+    font_system.o(.text.SetDefaultFontLib) refers to font_system.o(.bss.g_ptDefaultFontLib) for g_ptDefaultFontLib
+    font_system.o(.ARM.exidx.text.SetDefaultFontLib) refers to font_system.o(.text.SetDefaultFontLib) for [Anonymous Symbol]
+    font_system.o(.text.InitDefaultFontLib) refers to font_system.o(.bss.g_ptDefaultFontLib) for g_ptDefaultFontLib
+    font_system.o(.ARM.exidx.text.InitDefaultFontLib) refers to font_system.o(.text.InitDefaultFontLib) for [Anonymous Symbol]
+    font_system.o(.text.GetFontBitMap) refers to font_system.o(.bss.g_ptDefaultFontLib) for g_ptDefaultFontLib
+    font_system.o(.ARM.exidx.text.GetFontBitMap) refers to font_system.o(.text.GetFontBitMap) for [Anonymous Symbol]
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
@@ -1355,8 +1380,6 @@ Removing Unused input sections from the image.
     Removing driver_key.o(.data.key2_val), (1 bytes).
     Removing driver_led.o(.text), (0 bytes).
     Removing driver_led.o(.ARM.exidx.text.HAL_LEDDeviceControl), (8 bytes).
-    Removing ascii_font.o(.text), (0 bytes).
-    Removing ascii_font.o(.rodata.ascii_font), (2048 bytes).
     Removing driver_i2c.o(.text), (0 bytes).
     Removing driver_i2c.o(.text.I2C_Delay), (42 bytes).
     Removing driver_i2c.o(.ARM.exidx.text.I2C_Delay), (8 bytes).
@@ -1513,6 +1536,34 @@ Removing Unused input sections from the image.
     Removing display_system.o(.ARM.exidx.text.AddDisplayDevices), (8 bytes).
     Removing display_system.o(.text.GetDisplayDevice), (4 bytes).
     Removing display_system.o(.ARM.exidx.text.GetDisplayDevice), (8 bytes).
+    Removing ascii_font_1.o(.text), (0 bytes).
+    Removing ascii_font_1.o(.text.AddFontLibASCII), (12 bytes).
+    Removing ascii_font_1.o(.ARM.exidx.text.AddFontLibASCII), (8 bytes).
+    Removing ascii_font_1.o(.text.ASCIIGetFontSize), (18 bytes).
+    Removing ascii_font_1.o(.ARM.exidx.text.ASCIIGetFontSize), (8 bytes).
+    Removing ascii_font_1.o(.text.ASCIIGetFontBitMap), (92 bytes).
+    Removing ascii_font_1.o(.ARM.exidx.text.ASCIIGetFontBitMap), (8 bytes).
+    Removing ascii_font_1.o(.rodata.ascii_font), (2048 bytes).
+    Removing ascii_font_1.o(.data.g_ASCIIFontLib), (24 bytes).
+    Removing ascii_font_1.o(.rodata.str1.1), (6 bytes).
+    Removing font_manager.o(.text), (0 bytes).
+    Removing font_manager.o(.text.FontLibRegister), (16 bytes).
+    Removing font_manager.o(.ARM.exidx.text.FontLibRegister), (8 bytes).
+    Removing font_manager.o(.text.__GetFontLib), (38 bytes).
+    Removing font_manager.o(.ARM.exidx.text.__GetFontLib), (8 bytes).
+    Removing font_manager.o(.bss.g_ptFontLibs), (4 bytes).
+    Removing font_system.o(.text), (0 bytes).
+    Removing font_system.o(.text.AddFontLibs), (4 bytes).
+    Removing font_system.o(.ARM.exidx.text.AddFontLibs), (8 bytes).
+    Removing font_system.o(.text.GetFontLib), (4 bytes).
+    Removing font_system.o(.ARM.exidx.text.GetFontLib), (8 bytes).
+    Removing font_system.o(.text.SetDefaultFontLib), (30 bytes).
+    Removing font_system.o(.ARM.exidx.text.SetDefaultFontLib), (8 bytes).
+    Removing font_system.o(.text.InitDefaultFontLib), (22 bytes).
+    Removing font_system.o(.ARM.exidx.text.InitDefaultFontLib), (8 bytes).
+    Removing font_system.o(.text.GetFontBitMap), (14 bytes).
+    Removing font_system.o(.ARM.exidx.text.GetFontBitMap), (8 bytes).
+    Removing font_system.o(.bss.g_ptDefaultFontLib), (4 bytes).
     Removing dadd.o(.text), (334 bytes).
     Removing dmul.o(.text), (228 bytes).
     Removing ddiv.o(.text), (222 bytes).
@@ -1520,7 +1571,7 @@ Removing Unused input sections from the image.
     Removing cdrcmple.o(.text), (48 bytes).
     Removing depilogue.o(.text), (186 bytes).
 
-577 unused section(s) (total 28996 bytes) removed from the image.
+603 unused section(s) (total 29364 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1572,7 +1623,7 @@ Image Symbol Table
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
-    ascii_font.c                             0x00000000   Number         0  ascii_font.o ABSOLUTE
+    ascii_font.c                             0x00000000   Number         0  ascii_font_1.o ABSOLUTE
     cal_gpio_key.c                           0x00000000   Number         0  cal_gpio_key.o ABSOLUTE
     cal_led_device.c                         0x00000000   Number         0  cal_led_device.o ABSOLUTE
     cal_oled_device.c                        0x00000000   Number         0  cal_oled_device.o ABSOLUTE
@@ -1587,6 +1638,8 @@ Image Symbol Table
     driver_led.c                             0x00000000   Number         0  driver_led.o ABSOLUTE
     driver_oled.c                            0x00000000   Number         0  driver_oled.o ABSOLUTE
     driver_usart.c                           0x00000000   Number         0  driver_usart.o ABSOLUTE
+    font_manager.c                           0x00000000   Number         0  font_manager.o ABSOLUTE
+    font_system.c                            0x00000000   Number         0  font_system.o ABSOLUTE
     gpio.c                                   0x00000000   Number         0  gpio.o ABSOLUTE
     gpio_key.c                               0x00000000   Number         0  gpio_key.o ABSOLUTE
     handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
@@ -1945,23 +1998,23 @@ Memory Map of the image
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x08000000   0x08000000   0x00000130   Data   RO            3    RESET               startup_stm32f103xe.o
-    0x08000130   0x08000130   0x00000000   Code   RO          942  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x08000130   0x08000130   0x00000004   Code   RO         1214    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x08000134   0x08000134   0x00000004   Code   RO         1217    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x08000138   0x08000138   0x00000000   Code   RO         1219    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x08000138   0x08000138   0x00000000   Code   RO         1221    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x08000138   0x08000138   0x00000008   Code   RO         1222    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x08000140   0x08000140   0x00000000   Code   RO         1224    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x08000140   0x08000140   0x00000000   Code   RO         1226    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x08000140   0x08000140   0x00000004   Code   RO         1215    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x08000130   0x08000130   0x00000000   Code   RO          985  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x08000130   0x08000130   0x00000004   Code   RO         1257    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x08000134   0x08000134   0x00000004   Code   RO         1260    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x08000138   0x08000138   0x00000000   Code   RO         1262    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x08000138   0x08000138   0x00000000   Code   RO         1264    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x08000138   0x08000138   0x00000008   Code   RO         1265    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x08000140   0x08000140   0x00000000   Code   RO         1267    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x08000140   0x08000140   0x00000000   Code   RO         1269    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x08000140   0x08000140   0x00000004   Code   RO         1258    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
     0x08000144   0x08000144   0x00000024   Code   RO            4    .text               startup_stm32f103xe.o
-    0x08000168   0x08000168   0x00000030   Code   RO         1253    .text               mc_w.l(init.o)
+    0x08000168   0x08000168   0x00000030   Code   RO         1296    .text               mc_w.l(init.o)
     0x08000198   0x08000198   0x00000002   Code   RO           60    .text.BusFault_Handler  stm32f1xx_it.o
     0x0800019a   0x0800019a   0x00000002   PAD
-    0x0800019c   0x0800019c   0x00000004   Code   RO          784    .text.CAL_Delay     cal_timer.o
-    0x080001a0   0x080001a0   0x00000004   Code   RO          782    .text.CAL_GetTime   cal_timer.o
-    0x080001a4   0x080001a4   0x00000004   Code   RO          795    .text.CAL_LEDDeviceControl  cal_led_device.o
-    0x080001a8   0x080001a8   0x00000004   Code   RO          793    .text.CAL_LEDDeviceInit  cal_led_device.o
+    0x0800019c   0x0800019c   0x00000004   Code   RO          778    .text.CAL_Delay     cal_timer.o
+    0x080001a0   0x080001a0   0x00000004   Code   RO          776    .text.CAL_GetTime   cal_timer.o
+    0x080001a4   0x080001a4   0x00000004   Code   RO          789    .text.CAL_LEDDeviceControl  cal_led_device.o
+    0x080001a8   0x080001a8   0x00000004   Code   RO          787    .text.CAL_LEDDeviceInit  cal_led_device.o
     0x080001ac   0x080001ac   0x00000002   Code   RO           66    .text.DebugMon_Handler  stm32f1xx_it.o
     0x080001ae   0x080001ae   0x00000002   PAD
     0x080001b0   0x080001b0   0x00000016   Code   RO          612    .text.EXTI15_10_IRQHandler  driver_key.o
@@ -1970,7 +2023,7 @@ Memory Map of the image
     0x080001ee   0x080001ee   0x00000002   PAD
     0x080001f0   0x080001f0   0x0000000a   Code   RO           15    .text.Error_Handler  main.o
     0x080001fa   0x080001fa   0x00000002   PAD
-    0x080001fc   0x080001fc   0x0000001a   Code   RO          889    .text.GetLEDDevice  led_device.o
+    0x080001fc   0x080001fc   0x0000001a   Code   RO          883    .text.GetLEDDevice  led_device.o
     0x08000216   0x08000216   0x00000002   PAD
     0x08000218   0x08000218   0x00000046   Code   RO          368    .text.HAL_DMA_Abort  stm32f1xx_hal_dma.o
     0x0800025e   0x0800025e   0x00000002   PAD
@@ -2024,12 +2077,12 @@ Memory Map of the image
     0x080012f6   0x080012f6   0x00000002   PAD
     0x080012f8   0x080012f8   0x00000002   Code   RO           56    .text.HardFault_Handler  stm32f1xx_it.o
     0x080012fa   0x080012fa   0x00000002   PAD
-    0x080012fc   0x080012fc   0x00000004   Code   RO          743    .text.KAL_Delay     kal_timer.o
-    0x08001300   0x08001300   0x00000004   Code   RO          741    .text.KAL_GetTime   kal_timer.o
-    0x08001304   0x08001304   0x00000004   Code   RO          754    .text.KAL_LEDDeviceControl  kal_led_device.o
-    0x08001308   0x08001308   0x00000004   Code   RO          752    .text.KAL_LEDDeviceInit  kal_led_device.o
-    0x0800130c   0x0800130c   0x00000004   Code   RO          887    .text.LEDDeviceControl  led_device.o
-    0x08001310   0x08001310   0x00000004   Code   RO          885    .text.LEDDeviceInit  led_device.o
+    0x080012fc   0x080012fc   0x00000004   Code   RO          737    .text.KAL_Delay     kal_timer.o
+    0x08001300   0x08001300   0x00000004   Code   RO          735    .text.KAL_GetTime   kal_timer.o
+    0x08001304   0x08001304   0x00000004   Code   RO          748    .text.KAL_LEDDeviceControl  kal_led_device.o
+    0x08001308   0x08001308   0x00000004   Code   RO          746    .text.KAL_LEDDeviceInit  kal_led_device.o
+    0x0800130c   0x0800130c   0x00000004   Code   RO          881    .text.LEDDeviceControl  led_device.o
+    0x08001310   0x08001310   0x00000004   Code   RO          879    .text.LEDDeviceInit  led_device.o
     0x08001314   0x08001314   0x000000fe   Code   RO           27    .text.MX_GPIO_Init  gpio.o
     0x08001412   0x08001412   0x00000002   PAD
     0x08001414   0x08001414   0x0000003c   Code   RO           36    .text.MX_USART1_UART_Init  usart.o
@@ -2040,7 +2093,7 @@ Memory Map of the image
     0x08001492   0x08001492   0x00000002   PAD
     0x08001494   0x08001494   0x00000002   Code   RO           68    .text.PendSV_Handler  stm32f1xx_it.o
     0x08001496   0x08001496   0x00000002   PAD
-    0x08001498   0x08001498   0x00000074   Code   RO          830    .text.PutInputEvent  input_buffer.o
+    0x08001498   0x08001498   0x00000074   Code   RO          824    .text.PutInputEvent  input_buffer.o
     0x0800150c   0x0800150c   0x00000002   Code   RO           64    .text.SVC_Handler   stm32f1xx_it.o
     0x0800150e   0x0800150e   0x00000002   PAD
     0x08001510   0x08001510   0x00000004   Code   RO           70    .text.SysTick_Handler  stm32f1xx_it.o
@@ -2053,34 +2106,34 @@ Memory Map of the image
     0x08001614   0x08001614   0x00000002   Code   RO           62    .text.UsageFault_Handler  stm32f1xx_it.o
     0x08001616   0x08001616   0x00000002   PAD
     0x08001618   0x08001618   0x0000003c   Code   RO          576    .text.fputc         driver_usart.o
-    0x08001654   0x08001654   0x0000005a   Code   RO          866    .text.led_test      led_test.o
+    0x08001654   0x08001654   0x0000005a   Code   RO          860    .text.led_test      led_test.o
     0x080016ae   0x080016ae   0x00000002   PAD
     0x080016b0   0x080016b0   0x0000009c   Code   RO           11    .text.main          main.o
     0x0800174c   0x0800174c   0x0000000c   Code   RO          596    .text.ring_buffer_init  ring_buffer.o
     0x08001758   0x08001758   0x00000020   Code   RO          598    .text.ring_buffer_write  ring_buffer.o
-    0x08001778   0x08001778   0x0000000e   Code   RO         1265    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x08001786   0x08001786   0x00000002   Code   RO         1266    i.__scatterload_null  mc_w.l(handlers.o)
-    0x08001788   0x08001788   0x0000000e   Code   RO         1267    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x08001778   0x08001778   0x0000000e   Code   RO         1308    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x08001786   0x08001786   0x00000002   Code   RO         1309    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08001788   0x08001788   0x0000000e   Code   RO         1310    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x08001796   0x08001796   0x00000002   PAD
-    0x08001798   0x08001798   0x00000024   Code   RO          945    i.puts              mc_w.l(puts.o)
+    0x08001798   0x08001798   0x00000024   Code   RO          988    i.puts              mc_w.l(puts.o)
     0x080017bc   0x080017bc   0x00000002   Data   RO          313    .rodata..L__const.HAL_RCC_GetSysClockFreq.aPredivFactorTable  stm32f1xx_hal_rcc.o
     0x080017be   0x080017be   0x00000006   Data   RO          632    .rodata..Lswitch.table.HAL_LEDDeviceControl  driver_led.o
     0x080017c4   0x080017c4   0x00000010   Data   RO          562    .rodata.AHBPrescTable  system_stm32f1xx.o
     0x080017d4   0x080017d4   0x00000008   Data   RO          563    .rodata.APBPrescTable  system_stm32f1xx.o
     0x080017dc   0x080017dc   0x00000010   Data   RO          312    .rodata.cst16       stm32f1xx_hal_rcc.o
-    0x080017ec   0x080017ec   0x00000020   Data   RO         1264    Region$$Table       anon$$obj.o
+    0x080017ec   0x080017ec   0x00000020   Data   RO         1307    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08001810, Size: 0x00000a60, Max: 0x00010000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08001810   0x00000004   Data   RW         1228    .data               mc_w.l(stdout.o)
+    0x20000000   0x08001810   0x00000004   Data   RW         1271    .data               mc_w.l(stdout.o)
     0x20000004   0x08001814   0x00000008   Data   RW          275    .data..L_MergedGlobals  stm32f1xx_hal.o
     0x2000000c   0x0800181c   0x00000004   Data   RW          561    .data.SystemCoreClock  system_stm32f1xx.o
-    0x20000010   0x08001820   0x0000003c   Data   RW          891    .data.g_tLEDDevices  led_device.o
+    0x20000010   0x08001820   0x0000003c   Data   RW          885    .data.g_tLEDDevices  led_device.o
     0x2000004c   0x0800185c   0x00000004   PAD
-    0x20000050        -       0x00000170   Zero   RW          834    .bss.g_tInputBuffer  input_buffer.o
+    0x20000050        -       0x00000170   Zero   RW          828    .bss.g_tInputBuffer  input_buffer.o
     0x200001c0        -       0x00000044   Zero   RW           44    .bss.huart1         usart.o
     0x20000204        -       0x00000044   Zero   RW           45    .bss.huart3         usart.o
     0x20000248        -       0x00000001   Zero   RW          587    .bss.rxcplt_flag    driver_usart.o

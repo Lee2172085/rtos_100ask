@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xE</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;..\ModuleDrivers;..\smartdevice\kal;..\smartdevice\cal;..\smartdevice\input;..\smartdevice\uinttest;..\smartdevice\device;..\smartdevice\device\display;..\smartdevice\config</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;..\ModuleDrivers;..\smartdevice\kal;..\smartdevice\cal;..\smartdevice\input;..\smartdevice\uinttest;..\smartdevice\device;..\smartdevice\device\display;..\smartdevice\config;..\smartdevice\fonts</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -531,11 +531,6 @@
               <FilePath>..\ModuleDrivers\driver_led.c</FilePath>
             </File>
             <File>
-              <FileName>ascii_font.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\ModuleDrivers\ascii_font.c</FilePath>
-            </File>
-            <File>
               <FileName>driver_i2c.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\ModuleDrivers\driver_i2c.c</FilePath>
@@ -664,6 +659,26 @@
               <FileName>display_system.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\smartdevice\device\display\display_system.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>fonts</GroupName>
+          <Files>
+            <File>
+              <FileName>ascii_font.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\smartdevice\fonts\ascii_font.c</FilePath>
+            </File>
+            <File>
+              <FileName>font_manager.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\smartdevice\fonts\font_manager.c</FilePath>
+            </File>
+            <File>
+              <FileName>font_system.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\smartdevice\fonts\font_system.c</FilePath>
             </File>
           </Files>
         </Group>

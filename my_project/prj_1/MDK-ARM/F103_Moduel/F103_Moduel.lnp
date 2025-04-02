@@ -24,7 +24,6 @@
 "f103_moduel\ring_buffer.o"
 "f103_moduel\driver_key.o"
 "f103_moduel\driver_led.o"
-"f103_moduel\ascii_font.o"
 "f103_moduel\driver_i2c.o"
 "f103_moduel\driver_oled.o"
 "f103_moduel\kal_gpio_key.o"
@@ -45,6 +44,9 @@
 "f103_moduel\display_device.o"
 "f103_moduel\oled_device.o"
 "f103_moduel\display_system.o"
+"f103_moduel\ascii_font_1.o"
+"f103_moduel\font_manager.o"
+"f103_moduel\font_system.o"
 --library_type=microlib --strict --scatter "F103_Moduel\F103_Moduel.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
