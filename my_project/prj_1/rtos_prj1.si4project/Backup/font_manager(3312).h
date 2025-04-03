@@ -16,9 +16,9 @@ typedef struct FontBitMap {
 
 typedef struct FontLib {
 	char *name;
-	int (*FontInit)(struct FontLib *pFontLib);  						  /* 初始化字库 */
-	void (*GetFontSize)(int *piWidth, int *piHeigh);                      /* 获取字体大小 */
-	int (*SetFontSize)(int iFontSize);          						  /* 设置字体大小 */
+	int (*FontInit)(struct FontLib *pFontLib);  /* 初始化字库 */
+	void (*GetFontSize)(int *piWidth, int *piHeigh);                   /* 获取字体大小 */
+	int (*SetFontSize)(int iFontSize);          /* 设置字体大小 */
 	int (*GetFontBitMap)(unsigned int dwCode, PFontBitMap ptFontBitMap);  /* 获取某个字符的字库 */
 	struct FontLib *pNext;
 }FontLib, *PFontLib;
